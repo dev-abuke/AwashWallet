@@ -1,0 +1,45 @@
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:title="Accounts And Passwords">
+
+        <CheckBoxPreference
+            android:key="save_pin"
+            android:icon="@drawable/ic_saved"
+            android:title="Save awash pin"
+            android:summary="saves pin for application session only"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="advanced"
+        android:title="About">
+
+        <Preference
+            android:icon="@drawable/awash_logo"
+            android:summary="www.awashBank.com/wallet"
+            android:title="About Awash Walet">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://www.awashBank.com/wallet" />
+
+        </Preference>
+
+
+        <Preference
+            android:key="Developer"
+            android:icon="@drawable/ic_contact"
+            android:summary="developed and designed by Abubeker Shamil"
+            android:title="Awash Mobile Developer" >
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://www.linkedin.com/abubeker_shamil" />
+        </Preference>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Awash Wallet</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="current_account">Current Account</string>
+    <string name="recharge">Recharge</string>
+    <string name="pay_bill">Pay Bill</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="amount">Amount</string>
+    <string name="settings">Settings</string>
+    <string name="pin">Pin</string>
+    <string name="account_number">Account Number</string>
+    <string name="Continue">Continue</string>
+    <string name="awash_bank_logo">Awash Bank Logo</string>
+    <string name="school_id">School Id</string>
+    <string name="student_id">Student Id</string>
+    <string name="pay">Pay</string>
+    <string name="buy">Buy</string>
+    <string name="transfer">Transfer</string>
+    <string name="card_number">DSTV Card Number</string>
+    <string name="booking_number">Booking Number</string>
+    <string name="service_number">Service Id</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="account_notify">add the account you use \non daily basis</string>
+    <string name="recharge_other">recharge_other</string>
+    <string name="pick_contact">Pick from PhoneBook</string>
+    <string name="school_payment">School Payment</string>
+    <string name="airline_ticket">Airline Ticket</string>
+    <string name="dstv_ayment">DSTV Payment</string>
+    <string name="other_payment">Other Payment</string>
+    <string name="recharge_for_others">Recharge for others?</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="reason_for_payment">Reason for Payment</string>
+    <string name="student_name">Student Name</string>
+    <string name="add_reason_for_payment_question">add reason for payment?</string>
+</resources>

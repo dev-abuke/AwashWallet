@@ -1,0 +1,45 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/deepBlue</item>
+        <item name="colorPrimaryDark">@color/lightBlue</item>
+        <item name="colorAccent">@color/deepYellow</item>
+    </style>
+
+    <style name="darkTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/darkThemePrimary</item>
+        <item name="colorPrimaryDark">@color/darkThemePrimaryDark</item>
+        <item name="colorAccent">@color/darkThemeAccent</item>
+        <item name="android:windowBackground">@color/darkThemeWindowBg</item>
+    </style>
+
+    <style name="textStyleRecycler" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/deepBlue</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+    </style>
+
+    <style name="textStyleActionBar" parent="textStyleRecycler">
+        <!-- Customize your theme here. -->
+        <item name="android:textSize">19sp</item>
+        <item name="android:textColor">@color/deepYellow</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="textViewStyle" parent="textStyleActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+    </style>
+
+    <style name="btnStyle" parent="textStyleActionBar">
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@drawable/button_background</item>
+        <item name="android:textColor">@color/deepYellow</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+</resources>

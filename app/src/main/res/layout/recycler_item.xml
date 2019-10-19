@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    app:elevation="8dp"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="@color/cardBg"
+    app:cardPreventCornerOverlap="true"
+    app:cardCornerRadius="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                app:elevation="8dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="6dp"
+                android:paddingBottom="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0"
+                    android:src="@drawable/ic_school"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    style="@style/textStyleRecycler"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="0dp"
+                    android:text="Pay School Fee" />
+
+                <ImageView
+                    android:scaleType="fitEnd"
+                    android:id="@+id/ic_arrowDown"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="0"
+                    android:src="@drawable/ic_keyboard_arrow_down_black_24dp"
+                    android:tint="@color/deepBlue" />
+
+            </LinearLayout>
+
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:id="@+id/expandable_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:el_duration="600"
+                app:el_expanded="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="16dp">
+
+                    <EditText
+                        android:id="@+id/studentName"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:hint="Student Name"
+                        android:inputType="text"
+                        android:paddingStart="4dp"
+                        android:paddingEnd="5dp"
+                        android:textColor="@color/deepBlue"
+                        android:textColorHint="@color/hintYellow"
+                        app:backgroundTint="@color/deepBlue"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="@tools:sample/date/day_of_week" />
+
+
+                    <EditText
+                        android:id="@+id/schoolId"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:paddingStart="4dp"
+                        android:paddingEnd="5dp"
+                        android:textColor="@color/deepBlue"
+                        android:maxLength="10"
+                        android:hint="@string/school_id"
+                        android:inputType="number"
+                        android:textColorHint="@color/hintYellow"
+                        app:backgroundTint="@color/deepBlue"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/studentName"/>
+
+                    <EditText
+                        android:paddingStart="4dp"
+                        android:paddingEnd="5dp"
+                        android:id="@+id/editText2"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:textColor="@color/deepBlue"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:hint="@string/student_id"
+                        android:maxLength="4"
+                        android:inputType="number"
+                        android:textColorHint="@color/hintYellow"
+                        app:backgroundTint="@color/deepBlue"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/schoolId" />
+
+                    <EditText
+                        android:textColor="@color/deepBlue"
+                        android:paddingStart="4dp"
+                        android:paddingEnd="5dp"
+                        android:maxLength="4"
+                        android:id="@+id/amountF"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:hint="@string/amount"
+                        android:inputType="number"
+                        android:textColorHint="@color/hintYellow"
+                        app:backgroundTint="@color/deepBlue"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+
+                    <EditText
+                        android:textColor="@color/deepBlue"
+                        android:paddingStart="4dp"
+                        android:paddingEnd="5dp"
+                        android:maxLength="35"
+                        android:visibility="gone"
+                        android:id="@+id/reasonF"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:hint="Reason for Payment"
+                        android:inputType="textAutoComplete"
+                        android:textColorHint="@color/hintYellow"
+                        app:backgroundTint="@color/deepBlue"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/amountF" />
+
+                    <EditText
+                        android:textColor="@color/deepBlue"
+                        android:paddingStart="4dp"
+                        android:paddingEnd="5dp"
+                        android:maxLength="4"
+                        android:id="@+id/pinF"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:hint="@string/pin"
+                        android:inputType="numberPassword"
+                        android:textColorHint="@color/hintYellow"
+                        app:backgroundTint="@color/deepBlue"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/reasonF" />
+
+                    <Button
+                        android:id="@+id/btnAny"
+                        android:layout_width="150dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="16dp"
+                        app:elevation="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/button_background"
+                        android:text="@string/recharge"
+                        android:textColor="@color/deepYellow"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/pinF" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="5dp"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/btnAny">
+
+                        <TextView
+                            android:id="@+id/addReason"
+                            style="@style/textViewStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|center_vertical"
+                            android:layout_weight="1"
+                            android:text="add reason for payment?" />
+
+                        <com.suke.widget.SwitchButton
+                            android:id="@+id/switchAddReason"
+                            android:layout_width="45dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="end|center_vertical"
+                            android:layout_weight="0"
+                            app:sb_checked="false"
+                            app:sb_checked_color="@color/deepYellow"
+                            app:sb_uncheckcircle_color="@color/deepBlue" />
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </net.cachapa.expandablelayout.ExpandableLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

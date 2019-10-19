@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="deepYellow">#F79C20</color>
+    <color name="hintYellow">#F9C67F</color>
+    <color name="hintGrey">#87827B</color>
+    <color name="hintDarkBlue">#010066</color>
+    <color name="lightBlue">#4947E9</color>
+    <color name="deepBlue">#29289B</color>
+    <color name="navAndStat">#E35418</color>
+    <color name="darkThemePrimary">#554C4C</color>
+    <color name="darkThemePrimaryDark">#353333</color>
+    <color name="darkThemeAccent">#EBE4E4</color>
+    <color name="darkThemeWindowBg">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="cardBg">#FFFFFF</color>
+</resources>

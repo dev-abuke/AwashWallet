@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="5dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="6dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/phoneFieldContainer"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" >
+
+                    <EditText
+                        android:id="@+id/phoneField"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:maxLength="10"
+                        android:hint="@string/phone_number"
+                        android:inputType="phone"
+                        style="@style/editTextStyle" />
+
+                    <ImageView
+                        android:id="@+id/contactPicker"
+                        android:adjustViewBounds="true"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginBottom="-7.4dp"
+                        android:layout_weight="0"
+                        android:layout_marginStart="2dp"
+                        android:src="@drawable/ic_contact"/>
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/amountRechaF"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:textColor="@color/deepBlue"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:hint="@string/amount"
+                    android:maxLength="4"
+                    style="@style/editTextStyle"
+                    android:inputType="number"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/phoneFieldContainer" />
+
+                <EditText
+                    android:textColor="@color/deepBlue"
+                    android:maxLength="4"
+                    android:id="@+id/pinRechaF"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:hint="@string/pin"
+                    android:inputType="numberPassword"
+                    style="@style/editTextStyle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/amountRechaF" />
+
+                <Button
+                    android:id="@+id/btnRecharge"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="24dp"
+                    style="@style/btnStyle"
+                    android:text="@string/recharge"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pinRechaF" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnRecharge"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="16dp"
+                    android:paddingEnd="8dp"
+                    android:paddingStart="0dp">
+
+                    <TextView
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_weight="1"
+                        android:id="@+id/otherText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/recharge_for_others"
+                        style="@style/textViewStyle"/>
+
+                    <com.suke.widget.SwitchButton
+                        android:layout_gravity="end|center_vertical"
+                        android:id="@+id/switchRecharge"
+                        android:layout_weight="0"
+                        android:layout_width="45dp"
+                        android:layout_height="30dp"
+                        app:sb_uncheckcircle_color="@color/deepBlue"
+                        app:sb_checked="true"
+                        app:sb_checked_color="@color/deepYellow" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.core.widget.NestedScrollView>

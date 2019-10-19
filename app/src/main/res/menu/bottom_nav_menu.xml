@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_pay"
+        android:icon="@drawable/ic_account_balance_wallet_black_24dp"
+        android:title="@string/pay_bill" />
+
+    <item
+        android:id="@+id/navigation_recharge"
+        android:icon="@drawable/ic_call_blue_24dp"
+        android:title="@string/recharge" />
+
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_settings_blue_24dp"
+        android:title="@string/settings" />
+
+</menu>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_pay">
+
+    <fragment
+        android:id="@+id/navigation_pay"
+        android:name="com.awash.mobile.banking.ui_fragments.payment.PayFragment"
+        android:label="@string/pay_bill"
+        tools:layout="@layout/fragment_pay" />
+
+    <fragment
+        android:id="@+id/navigation_recharge"
+        android:name="com.awash.mobile.banking.ui_fragments.recharge.RechargeFragment"
+        android:label="@string/recharge"
+        tools:layout="@layout/fragment_recharge" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.awash.mobile.banking.ui_fragments.settings.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings" />
+
+</navigation>

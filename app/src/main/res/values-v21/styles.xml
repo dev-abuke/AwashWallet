@@ -1,0 +1,59 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/deepBlue</item>
+        <item name="colorPrimaryDark">@color/lightBlue</item>
+        <item name="colorAccent">@color/deepYellow</item>
+        <item name="android:statusBarColor">@color/deepBlue</item>
+    </style>
+
+    <style name="darkTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/darkThemePrimary</item>
+        <item name="colorPrimaryDark">@color/darkThemePrimaryDark</item>
+        <item name="colorAccent">@color/darkThemeAccent</item>
+        <item name="android:windowBackground">@color/darkThemeWindowBg</item>
+    </style>
+
+    <style name="LoginTheme" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:navigationBarColor">@color/navAndStat</item>
+        <item name="android:statusBarColor">@color/navAndStat</item>
+    </style>
+
+    <style name="textStyleRecycler" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/deepBlue</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+    </style>
+
+    <style name="textStyleActionBar" parent="textStyleRecycler">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/deepYellow</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="textViewStyle" parent="textStyleActionBar">
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+    </style>
+
+    <style name="btnStyle" parent="textStyleActionBar">
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@drawable/button_background</item>
+        <item name="android:textColor">@color/deepYellow</item>
+        <item name="android:elevation">8dp</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="editTextStyle" parent="AppTheme">
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">5dp</item>
+        <item name="android:textColor">@color/deepBlue</item>
+        <item name="android:textColorHint">@color/hintYellow</item>
+        <item name="android:backgroundTint">@color/deepBlue</item>
+    </style>
+</resources>
