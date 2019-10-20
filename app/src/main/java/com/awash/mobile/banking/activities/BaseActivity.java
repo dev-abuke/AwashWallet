@@ -1,7 +1,5 @@
 package com.awash.mobile.banking.activities;
 
-import android.content.Context;
-
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 

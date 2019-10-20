@@ -1,11 +1,14 @@
 package com.awash.mobile.banking.ui_fragments.recharge;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.provider.SyncStateContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +29,8 @@ import com.suke.widget.SwitchButton;
 
 public class RechargeFragment extends BaseFragment
         implements View.OnClickListener,
-        SwitchButton.OnCheckedChangeListener {
+        SwitchButton.OnCheckedChangeListener,
+        AlertDialog.OnClickListener{
 
     private View root;
     private LinearLayout phone;
@@ -58,7 +62,8 @@ public class RechargeFragment extends BaseFragment
         tinyDB = new TinyDB(context);
 
         boolean isChecked = tinyDB.getBoolean(getStringResource(R.string.recharge_other));
-        handleSwitch(isChecked,switchBtn);
+
+        handleSwitch(isChecked,switchBtn,phone);
 
         return root;
     }
@@ -77,7 +82,8 @@ public class RechargeFragment extends BaseFragment
             //Recharge button implimentation
 
             Intent dialIntent = new Intent(Intent.ACTION_DIAL);
-            int account = tinyDB.getInt(getStringResource(R.string.current_account)) + 1;
+
+            int account = getCurrentAcc();
 
             if (isPhonePermissionsGranted()){
 
@@ -94,7 +100,7 @@ public class RechargeFragment extends BaseFragment
         }
     }
 
-    private void startAction(boolean isDataCorrect, Intent dialIntent,
+    private void startAction(boolean isDataCorrect,final Intent dialIntent,
                              int account, String pin, String amount, String phoneNo) {
 
         if (isDataCorrect){
@@ -105,15 +111,14 @@ public class RechargeFragment extends BaseFragment
             }else {
                 String send = String.format(Constants.RECHARGE_OWN,pin,account,amount);
                 dialIntent.setData(Uri.parse("tel:" + Uri.encode(send)));
+                phoneNo = "yourself";
             }
 
-            startActivity(dialIntent);
+            showConfirmation(Constants.TYPE_RECHARGE,amount,phoneNo,dialIntent).show();
         }
     }
 
-    private boolean checkData(String FieldType, String phoneNo, String amount, String pin,
-                              EditText phoneField, EditText amountF, EditText pinF,
-                              EditText reasonF, EditText schoolF, EditText studentF) {
+    private boolean checkData(String phoneNo, String amount, String pin) {
 
         if (switchBtn.isChecked()){
 
@@ -126,7 +131,7 @@ public class RechargeFragment extends BaseFragment
                 amountF.setError("Amount can not be empty");
                 return false;
             }
-        else if (pin.isEmpty()) {
+        if (pin.isEmpty()) {
                 pinF.setError("Pin can not be empty");
                 return false;
          }
@@ -139,19 +144,8 @@ public class RechargeFragment extends BaseFragment
 
         tinyDB.putBoolean(getStringResource(R.string.recharge_other),isChecked);
 
-        handleSwitch(isChecked, view);
+        handleSwitch(isChecked, view, phone);
 
-    }
-
-    private void handleSwitch(boolean isChecked, SwitchButton view) {
-
-        view.setChecked(isChecked);
-
-        if (isChecked){
-            phone.setVisibility(View.VISIBLE);
-        }else {
-            phone.setVisibility(View.GONE);
-        }
     }
 
     private void startContactPicker() {
@@ -214,5 +208,10 @@ public class RechargeFragment extends BaseFragment
         }
 
         return newString;
+    }
+
+    @Override
+    public void onClick(DialogInterface dialogInterface, int i) {
+
     }
 }

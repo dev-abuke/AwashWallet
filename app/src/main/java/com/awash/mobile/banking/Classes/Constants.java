@@ -32,8 +32,9 @@ public class Constants {
             R.drawable.ic_others
     };
 
-    public static final String TYPE_STUDENT   = "Student Id";
-    public static final String TYPE_SCHOOL    = "Student Id";
-    public static final String TYPE_BOOKING_NO    = "Student Id";
-    public static final String TYPE_    = "Student Id";
+    public static final String TYPE_SCHOOL_PAYMENT  = "School";
+    public static final String TYPE_AIRLINE_TICKET  = "Airline Ticket";
+    public static final String TYPE_DSTV_PAYMENT    = "Dstv";
+    public static final String TYPE_OTHER_PAYMENT   = "Others";
+    public static final String TYPE_RECHARGE        = "Recharge";
 }

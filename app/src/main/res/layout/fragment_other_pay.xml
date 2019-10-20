@@ -86,7 +86,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/reasonF" />
 
             <Button
-                android:id="@+id/btnAny"
+                android:id="@+id/btnOtherPay"
                 android:layout_width="150dp"
                 android:layout_height="0dp"
                 android:layout_marginTop="16dp"
@@ -107,7 +107,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnAny">
+                app:layout_constraintTop_toBottomOf="@id/btnOtherPay">
 
                 <TextView
                     android:id="@+id/addReason"
@@ -116,7 +116,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="start|center_vertical"
                     android:layout_weight="1"
-                    android:text="add reason for payment?" />
+                    android:text="@string/add_reason_for_payment_question" />
 
                 <com.suke.widget.SwitchButton
                     android:id="@+id/switchAddReason"
