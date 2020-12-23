@@ -9,6 +9,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,16 +60,11 @@ import java.util.ArrayList;
             return payTypes.size();
         }
 
-        public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,
-                ExpandableLayout.OnExpansionUpdateListener,
-                SwitchButton.OnCheckedChangeListener{
-            private ExpandableLayout expandableLayout;
-            private ImageView expandButton,icon;
-            private Button anyButton;
-            SwitchButton swReason;
-            TextView header;
+        public class ViewHolder extends RecyclerView.ViewHolder{
+            private ImageView icon;
+            LinearLayout container;
+            TextView footer;
             View recycler;
-            EditText schoolId,anyET,amountF,pinF,studentNameF,reasonF;
             Context context;
             ArrayList<PayViewModel> payTypes;
 
@@ -79,138 +75,35 @@ import java.util.ArrayList;
                 this.payTypes = payTypes;
                 recycler = itemView;
 
-                expandableLayout = itemView.findViewById(R.id.expandable_layout);
-                icon = itemView.findViewById(R.id.icon);
-                anyButton = itemView.findViewById(R.id.btnAny);
-                header = itemView.findViewById(R.id.textHeader);
-                schoolId = itemView.findViewById(R.id.schoolId);
-                anyET = itemView.findViewById(R.id.editText2);
-                amountF = itemView.findViewById(R.id.amountF);
-                pinF = itemView.findViewById(R.id.pinF);
-                studentNameF = itemView.findViewById(R.id.studentName);
-                reasonF = itemView.findViewById(R.id.reasonF);
-                swReason = itemView.findViewById(R.id.switchAddReason);
-                expandButton = itemView.findViewById(R.id.ic_arrowDown);
+                container = itemView.findViewById(R.id.check_bal_layout);
+                icon = itemView.findViewById(R.id.image_desc);
+                footer = itemView.findViewById(R.id.text_desc);
 
+               //container.setOnClickListener(this);
 
+                /*
                 expandableLayout.setInterpolator(new DecelerateInterpolator());
                 expandableLayout.setOnExpansionUpdateListener(this);
                 swReason.setOnCheckedChangeListener(this);
                 anyButton.setOnClickListener(this);
                 expandButton.setOnClickListener(this);
+                */
             }
 
             public void bind() {
                 int position = getAdapterPosition();
-                boolean isSelected = position == selectedItem;
+                //boolean isSelected = position == selectedItem;
 
                 icon.setImageResource(payTypes.get(position).getIcon());
-                header.setText(payTypes.get(position).getName());
+                footer.setText(payTypes.get(position).getName());
 
+                /*
                 expandButton.setSelected(isSelected);
                 expandableLayout.setExpanded(isSelected, false);
+                */
             }
 
-            @Override
-            public void onClick(View view) {
 
-                int id = view.getId();
-
-                int position = getAdapterPosition();
-
-                if (id == R.id.ic_arrowDown){
-
-                    PaymentMethodsAdapter.ViewHolder holder = (PaymentMethodsAdapter.ViewHolder) recyclerView.findViewHolderForAdapterPosition(selectedItem);
-                    if (holder != null) {
-                        holder.expandButton.setSelected(false);
-                        holder.expandableLayout.collapse();
-                    }
-
-                    if (position == selectedItem) {
-                        selectedItem = UNSELECTED;
-                    } else {
-                        handle(position);
-                        expandButton.setSelected(true);
-                        expandableLayout.expand();
-                        selectedItem = position;
-                    }
-                }else if (id == R.id.btnAny){
-
-                    if (position == Constants.SCHOOL){
-                        Toast.makeText(context,"SCHOOL btn",Toast.LENGTH_SHORT).show();
-                    }
-                    else if (position == Constants.AIRLINE){
-                        Toast.makeText(context,"AIR btn",Toast.LENGTH_SHORT).show();
-                    }
-                    else if (position == Constants.DSTV){
-                        Toast.makeText(context,"DSTV btn",Toast.LENGTH_SHORT).show();
-                    }
-                    else if (position == Constants.OTHER){
-                        Toast.makeText(context,"OTHER btn",Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-
-            @Override
-            public void onExpansionUpdate(float expansionFraction, int state) {
-
-                Log.w("ExpandableLayout", "State: " + state);
-
-                if (state == ExpandableLayout.State.EXPANDED) {
-                    recyclerView.smoothScrollToPosition(getAdapterPosition());
-                }
-                if (Constants.AIRLINE == getAdapterPosition()){
-                    icon.setRotation(expansionFraction * 90);
-                }
-                if (Constants.OTHER == getAdapterPosition()){
-                    icon.setRotation(expansionFraction * 360);
-                }
-
-                Log.w("ExpandableLayout", "State: " + state);
-                expandButton.setRotation(expansionFraction * 180);
-
-            }
-
-            private void handle(int position){
-
-                if (position == Constants.SCHOOL){
-                    anyButton.setText(context.getResources().getString(R.string.pay));
-                    Toast.makeText(context,"SCHOOL Expanded",Toast.LENGTH_SHORT).show();
-                }
-                else if (position == Constants.AIRLINE){
-                    anyButton.setText(context.getResources().getString(R.string.buy));
-                    schoolId.setVisibility(View.GONE);
-                    studentNameF.setVisibility(View.GONE);
-                    anyET.setHint(context.getResources().getString(R.string.booking_number));
-                    Toast.makeText(context,"AIR Expanded",Toast.LENGTH_SHORT).show();
-                }
-                else if (position == Constants.DSTV){
-                    anyButton.setText(context.getResources().getString(R.string.pay));
-                    schoolId.setVisibility(View.GONE);
-                    studentNameF.setVisibility(View.GONE);
-                    anyET.setHint(context.getResources().getString(R.string.card_number));
-                    Toast.makeText(context,"DSTV Expanded",Toast.LENGTH_SHORT).show();
-                }
-                else if (position == Constants.OTHER){
-                    anyButton.setText(context.getResources().getString(R.string.transfer));
-                    schoolId.setVisibility(View.GONE);
-                    studentNameF.setVisibility(View.GONE);
-                    anyET.setHint(context.getResources().getString(R.string.account_number));
-                    Toast.makeText(context,"OTHER Expanded",Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
-
-                if (isChecked){
-                    reasonF.setVisibility(View.VISIBLE);
-                }else {
-                    reasonF.setVisibility(View.GONE);
-                }
-
-                recyclerView.smoothScrollToPosition(getAdapterPosition());
-            }
         }
 
     }

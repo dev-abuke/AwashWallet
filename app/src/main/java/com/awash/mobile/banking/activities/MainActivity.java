@@ -53,7 +53,6 @@ public class MainActivity extends BaseActivity implements
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 R.layout.spinner_item,getResources().getStringArray(R.array.entries));
 
-
         spinner.setAdapter(adapter);
         spinner.setSelection(selectedAccount,false);
         spinner.setOnItemSelectedListener(this);

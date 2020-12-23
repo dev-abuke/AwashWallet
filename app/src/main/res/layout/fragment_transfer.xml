@@ -21,19 +21,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
-                android:id="@+id/phoneFieldContainer"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" >
-
                 <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/phoneFieldCont"
@@ -46,24 +40,12 @@
                         android:layout_height="50dp"
                         android:maxLength="10"
                         android:layout_marginBottom="5.4dp"
-                        android:hint="@string/phone_number"
+                        android:hint="@string/account_number"
                         android:inputType="phone"
                         style="@style/editTextStyle" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <ImageView
-                    android:id="@+id/contactPicker"
-                    android:adjustViewBounds="true"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginBottom="-10dp"
-                    android:layout_weight="0"
-                    android:layout_marginStart="2dp"
-                    android:src="@drawable/ic_contact"/>
-
-            </LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -75,7 +57,7 @@
                 android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/phoneFieldContainer"
+                app:layout_constraintTop_toBottomOf="@+id/phoneFieldCont"
                 >
 
                 <EditText
@@ -124,7 +106,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="24dp"
                 style="@style/btnStyle"
-                android:text="@string/recharge"
+                android:text="@string/transfer"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/pinFCont" />
@@ -147,7 +129,7 @@
                     android:id="@+id/otherText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/recharge_for_others"
+                    android:text="@string/add_reason_for_transfer_question"
                     style="@style/textViewStyle"/>
 
                 <com.suke.widget.SwitchButton
@@ -157,7 +139,7 @@
                     android:layout_width="45dp"
                     android:layout_height="30dp"
                     app:sb_uncheckcircle_color="@color/deepBlue"
-                    app:sb_checked="true"
+                    app:sb_checked="false"
                     app:sb_checked_color="@color/deepYellow" />
 
             </LinearLayout>

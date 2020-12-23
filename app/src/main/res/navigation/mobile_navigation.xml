@@ -18,9 +18,17 @@
         tools:layout="@layout/fragment_recharge" />
 
     <fragment
+        android:id="@+id/navigation_more"
+        android:name="com.awash.mobile.banking.ui_fragments.more.MoreFragment"
+        android:label="More"
+        tools:layout="@layout/fragment_more" />
+
+    <fragment
         android:id="@+id/navigation_settings"
         android:name="com.awash.mobile.banking.ui_fragments.settings.SettingsFragment"
         android:label="@string/settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings" >
+    </fragment>
+
 
 </navigation>

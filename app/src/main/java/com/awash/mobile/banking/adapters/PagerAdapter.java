@@ -10,6 +10,7 @@ import com.awash.mobile.banking.ui_fragments.paymentOptions.AirPayFragment;
 import com.awash.mobile.banking.ui_fragments.paymentOptions.DsTvPayFragment;
 import com.awash.mobile.banking.ui_fragments.paymentOptions.OtherPayFragment;
 import com.awash.mobile.banking.ui_fragments.paymentOptions.SchoolPayFragment;
+import com.awash.mobile.banking.ui_fragments.transfer.TransferFragment;
 
 public class PagerAdapter extends FragmentPagerAdapter {
 
@@ -34,6 +35,8 @@ public class PagerAdapter extends FragmentPagerAdapter {
             case 2:
                 return new DsTvPayFragment();
             case 3:
+                return new TransferFragment();
+            case 4:
                 return new OtherPayFragment();
         }
 

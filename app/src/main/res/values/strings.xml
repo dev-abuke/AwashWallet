@@ -40,4 +40,6 @@
     <string name="reason_for_payment">Reason for Payment</string>
     <string name="student_name">Student Name</string>
     <string name="add_reason_for_payment_question">add reason for payment?</string>
+    <string name="add_reason_for_transfer_question">add reason for transfer?</string>
+    <string name="more">More</string>
 </resources>

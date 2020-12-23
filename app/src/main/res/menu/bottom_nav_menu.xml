@@ -12,6 +12,11 @@
         android:title="@string/recharge" />
 
     <item
+        android:id="@+id/navigation_more"
+        android:icon="@drawable/ic_more"
+        android:title="@string/more" />
+
+    <item
         android:id="@+id/navigation_settings"
         android:icon="@drawable/ic_settings_blue_24dp"
         android:title="@string/settings" />

@@ -1,19 +1,12 @@
 package com.awash.mobile.banking.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceManager;
-
 import com.awash.mobile.banking.Classes.TinyDB;
 import com.awash.mobile.banking.R;
 import com.google.android.material.snackbar.Snackbar;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
@@ -25,34 +18,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        accountF = findViewById(R.id.accountF);
-        phoneF = findViewById(R.id.phoneF);
-        pinF = findViewById(R.id.pinF);
-
         tinyDB = new TinyDB(this);
 
-        findViewById(R.id.btnLogin).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         int id = view.getId();
-        if (id == R.id.btnLogin){
-            //Continue btn Clicked
-
-                boolean number = checkDataForIntegrity(
-
-                        accountF.getText().toString(),
-                        phoneF.getText().toString(),
-                        pinF.getText().toString(),
-                        view
-                );
-
-                if (number){
-                    Intent intent = new Intent(this,MainActivity.class);
-                    startActivity(intent);
-            }
-        }
     }
 
     private boolean checkDataForIntegrity(String account,String phone,String pin,View view) {

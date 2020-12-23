@@ -8,7 +8,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
-import android.provider.SyncStateContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,6 @@ import androidx.annotation.NonNull;
 
 import com.awash.mobile.banking.Classes.Constants;
 import com.awash.mobile.banking.Classes.TinyDB;
-import com.awash.mobile.banking.activities.LoginActivity;
 import com.awash.mobile.banking.activities.MainActivity;
 import com.awash.mobile.banking.R;
 import com.awash.mobile.banking.ui_fragments.BaseFragment;
@@ -48,12 +46,12 @@ public class RechargeFragment extends BaseFragment
         root = inflater.inflate(R.layout.fragment_recharge, container, false);
 
         phoneField = root.findViewById(R.id.phoneField);
-        amountF = root.findViewById(R.id.amountRechaF);
-        pinF = root.findViewById(R.id.pinRechaF);
-        switchBtn = root.findViewById(R.id.switchRecharge);
-        contacts = root.findViewById(R.id.contactPicker);
-        recharge = root.findViewById(R.id.btnRecharge);
-        phone = root.findViewById(R.id.phoneFieldContainer);
+        amountF    = root.findViewById(R.id.amountRechaF);
+        pinF       = root.findViewById(R.id.pinRechaF);
+        switchBtn  = root.findViewById(R.id.switchRecharge);
+        contacts   = root.findViewById(R.id.contactPicker);
+        recharge   = root.findViewById(R.id.btnRecharge);
+        phone      = root.findViewById(R.id.phoneFieldContainer);
 
         contacts.setOnClickListener(this);
         switchBtn.setOnCheckedChangeListener(this);
@@ -81,7 +79,7 @@ public class RechargeFragment extends BaseFragment
         }else if (id == R.id.btnRecharge){
             //Recharge button implimentation
 
-            Intent dialIntent = new Intent(Intent.ACTION_DIAL);
+            Intent callIntent = new Intent(Intent.ACTION_CALL);
 
             int account = getCurrentAcc();
 
@@ -93,7 +91,7 @@ public class RechargeFragment extends BaseFragment
 
              boolean isDataCorrect = checkData(phoneNo,amount,pin);
 
-             startAction(isDataCorrect,dialIntent,account,pin,amount,phoneNo);
+             startAction(isDataCorrect,callIntent,account,pin,amount,phoneNo);
 
             }else
                 askPhonePermission();
@@ -106,10 +104,10 @@ public class RechargeFragment extends BaseFragment
         if (isDataCorrect){
 
             if (switchBtn.isChecked()){
-                String send = String.format(Constants.RECHARGE_OTHER,pin,account,phoneNo,amount);
+                String send = String.format(Constants.AWASH_RECHARGE_OTHER,pin,account,phoneNo,amount);
                 dialIntent.setData(Uri.parse("tel:" + Uri.encode(send)));
             }else {
-                String send = String.format(Constants.RECHARGE_OWN,pin,account,amount);
+                String send = String.format(Constants.AWASH_RECHARGE_OWN,pin,account,amount);
                 dialIntent.setData(Uri.parse("tel:" + Uri.encode(send)));
                 phoneNo = "yourself";
             }
@@ -151,7 +149,7 @@ public class RechargeFragment extends BaseFragment
     private void startContactPicker() {
         Intent i = new Intent(Intent.ACTION_PICK);
         i.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
-        startActivityForResult(i, Constants.SELECT_PHONE_NUMBER);
+        startActivityForResult(i, Constants.SELECT_PHONE_NUMBER_REQUEST_CODE);
     }
 
     @Override
@@ -171,7 +169,7 @@ public class RechargeFragment extends BaseFragment
 
         String PhoneNumber = "";
 
-        if (requestCode == Constants.SELECT_PHONE_NUMBER && resultCode == MainActivity.RESULT_OK) {
+        if (requestCode == Constants.SELECT_PHONE_NUMBER_REQUEST_CODE && resultCode == MainActivity.RESULT_OK) {
 
             if (data != null) {
 
